@@ -23,7 +23,9 @@ function onFormSubmit(e) {
     e.preventDefault();
 
     const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  
     console.log(savedData);
+    
 
     e.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
@@ -36,7 +38,7 @@ function reloadPage() {
     if (savedValues) {
         formData = JSON.parse(savedValues);
         console.log(formData);
-        refs.input.value = formData.email;
-        refs.textarea.value = formData.message;
+        refs.input.value = formData.email || '';
+        refs.textarea.value = formData.message || '';
     }
 }
